@@ -1,0 +1,8 @@
+<iframe src="/slides.html"></iframe>
+<div class="sidebar">
+  <% if current_user %>
+  <p><%= current_user.name %></p>
+  <% else %>
+    <a href="/login">Login with Twitter to comment</a>
+  <% end %>
+</div>
