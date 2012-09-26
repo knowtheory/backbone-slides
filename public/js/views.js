@@ -25,13 +25,13 @@ var CommentDialog = Backbone.View.extend({
     this.$el.show();
   },
   save: function(e) {
-    console.log('saving');
     var body = this.$el.find('textarea').val();
-    console.log(body);
     if (body.length > 0) {
       var comment = new Comment({ body: body, slide_id: this.collection.slide.id });
       comment.save();
       this.collection.add(comment);
+      this.$el.find('textarea').val('');
+      this.render();
     }
   },
   close: function(e) {
@@ -45,6 +45,7 @@ var SlideNavigation = Backbone.View.extend({
   initialize: function(options) {
     this.collection.on('reset', this.render, this);
     this.commentButton = new CommentButton({collection: this.collection});
+    this.on('slide_change', this.test, this);
   },
   render: function() {
     this.renderCommentButton();
@@ -53,7 +54,8 @@ var SlideNavigation = Backbone.View.extend({
   renderCommentButton: _.once(function(){
     this.$el.append('<a class="comments">&#x25C9;</a>');
     this.commentButton.setElement(this.$el.find('.comments'));
-  })
+  }),
+  test: function() { console.log("Slide Changed!"); }
 });
 
 var CommentButton = Backbone.View.extend({

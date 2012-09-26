@@ -1,9 +1,9 @@
 <%= comment_list %>
 <% if (user) { %>
   <textarea></textarea>
+  <span class="go button">Comment</span>
+  <span class="cancel button">Close</span>
 <% } else { %> 
   <a href='/login'>Login with Twitter to comment.</a>
 <% } %>
 
-<span class="go button">Comment</span>
-<span class="cancel button">Close</span>

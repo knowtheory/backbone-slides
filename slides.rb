@@ -9,8 +9,16 @@ BODY
   {
     :format => :markdown,
     :body => <<-BODY
+# Ted Han
+## @knowtheory
+## ted@documentcloud.org
+BODY
+  },
+  {
+    :format => :markdown,
+    :body => <<-BODY
 # DocumentCloud
-# Investigative Reporters &amp; Editors
+## Investigative Reporters &amp; Editors
 BODY
   },
   {
@@ -27,8 +35,6 @@ BODY
 ## UI/DOM & User Interaction
 BODY
   }
-
-
 ]
 
 data.each{ |d| Slide.create(d) }
